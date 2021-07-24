@@ -1,0 +1,4 @@
+POST /api/place/new
+GET api/place
+DELETE /api/place/delete/:id
+PUT /api/place/update/:id
