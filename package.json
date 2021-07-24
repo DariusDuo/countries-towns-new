@@ -4,7 +4,8 @@
   "description": "simple back",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "react": "npm start --prefix client"
   },
   "repository": {
     "type": "git",
