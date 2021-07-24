@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
 import PlaceForm from './components/PlaceForm';
+import axios from 'axios';
 
 class App extends Component {
   state = {};
 
-  createNewPlace = (dataToCreateNewPlace) => {
+  createNewPlace = async (dataToCreateNewPlace) => {
     console.log('createNewPlace in app.jsx fired');
     console.log('dataToCreateNewPlace', dataToCreateNewPlace);
+
+    try {
+      const createResult = await axios.post('http://localhost:3000/api/place/new', dataToCreateNewPlace);
+      console.log('createResult', createResult);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {

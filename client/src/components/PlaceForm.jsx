@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class PlaceForm extends Component {
   state = {
     name: 'Brasil',
-    continent: '',
-    population: '',
-    placeType: '',
+    continent: 'South America',
+    population: '100',
+    placeType: 'country',
   };
 
   handleSubmitLocal = (e) => {
