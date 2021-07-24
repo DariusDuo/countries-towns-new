@@ -9,8 +9,12 @@ class PlaceForm extends Component {
   };
 
   handleSubmitLocal = (e) => {
+    const { name, continent, population, placeType } = this.state;
     e.preventDefault();
     console.log('Stop!');
+    const dataToCreateNewPlace = { name, continent, population, placeType };
+    // console.log('dataToCreateNewPlace', dataToCreateNewPlace);
+    this.props.onCreateNewPlace(dataToCreateNewPlace);
   };
 
   handleInput = (e) => {
