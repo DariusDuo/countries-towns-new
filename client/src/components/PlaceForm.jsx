@@ -2,29 +2,63 @@ import React, { Component } from 'react';
 
 class PlaceForm extends Component {
   state = {
-    name: '',
+    name: 'Brasil',
     continent: '',
     population: '',
     placeType: '',
   };
+
+  handleSubmitLocal = (e) => {
+    e.preventDefault();
+    console.log('Stop!');
+  };
+
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
+    const { state: s } = this;
     return (
       <div className="w-50">
         <h2>Create new place</h2>
-        <div className="form-group">
-          <input type="text" className="form-control" name="name" placeholder="Name of place" />
-        </div>
-        <div className="form-group">
-          <input type="text" className="form-control" name="continent" placeholder="Continent" />
-        </div>
-        <div className="form-group">
-          <input type="number" className="form-control" name="population" placeholder="Population" />
-        </div>
-        <select name="placeType" className="custom-select">
-          <option value="city">City</option>
-          <option value="country">Country</option>
-        </select>
-        <button className="btn btn-primary my-3">Create</button>
+        <form onSubmit={this.handleSubmitLocal} autoComplete="off">
+          <div className="form-group">
+            <input
+              value={s.name}
+              onChange={this.handleInput}
+              type="text"
+              className="form-control"
+              name="name"
+              placeholder="Name of place"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              value={s.continent}
+              onChange={this.handleInput}
+              type="text"
+              className="form-control"
+              name="continent"
+              placeholder="Continent"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              value={s.population}
+              onChange={this.handleInput}
+              type="number"
+              className="form-control"
+              name="population"
+              placeholder="Population"
+            />
+          </div>
+          <select value={s.placeType} onChange={this.handleInput} name="placeType" className="custom-select">
+            <option value="city">City</option>
+            <option value="country">Country</option>
+          </select>
+          <button className="btn btn-primary my-3">Create</button>
+        </form>
       </div>
     );
   }
