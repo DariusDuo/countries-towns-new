@@ -8,13 +8,23 @@ class PlaceForm extends Component {
     placeType: 'country',
   };
 
-  handleSubmitLocal = (e) => {
+  clearInputs = () => {
+    this.setState({
+      name: '',
+      continent: '',
+      population: '',
+      placeType: '',
+    });
+  };
+
+  handleSubmitLocal = async (e) => {
     const { name, continent, population, placeType } = this.state;
     e.preventDefault();
     console.log('Stop!');
     const dataToCreateNewPlace = { name, continent, population, placeType };
     // console.log('dataToCreateNewPlace', dataToCreateNewPlace);
-    this.props.onCreateNewPlace(dataToCreateNewPlace);
+    const createSuccess = await this.props.onCreateNewPlace(dataToCreateNewPlace);
+    if (createSuccess) this.clearInputs();
   };
 
   handleInput = (e) => {
