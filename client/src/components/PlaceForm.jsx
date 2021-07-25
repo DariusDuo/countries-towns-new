@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class PlaceForm extends Component {
   state = {
-    name: 'Brasil',
-    continent: 'South America',
-    population: '100',
-    placeType: 'country',
+    name: '',
+    continent: '',
+    population: '',
+    placeType: 'city',
   };
 
   clearInputs = () => {

@@ -29,6 +29,7 @@ router.get('/api/place', async (req, res) => {
 
 // delete a place
 router.delete('/api/place/delete/:placeId', async (req, res) => {
+  const idOfItemToDelete = req.params.placeId;
   try {
     const deleteResult = await PlaceModel.findByIdAndDelete(idOfItemToDelete);
     res.json(deleteResult);
