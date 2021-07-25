@@ -27,4 +27,14 @@ router.get('/api/place', async (req, res) => {
   }
 });
 
+// delete a place
+router.delete('/api/place/delete/:placeId', async (req, res) => {
+  try {
+    const deleteResult = await PlaceModel.findByIdAndDelete(idOfItemToDelete);
+    res.json(deleteResult);
+  } catch (error) {
+    res.status(500).json();
+  }
+});
+
 module.exports = router;
