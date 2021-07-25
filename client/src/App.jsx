@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      places: [1, 2, 3, 4, 5],
+      places: [],
     };
   }
 

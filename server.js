@@ -19,15 +19,15 @@ mongoose
   })
   .catch((err) => console.error(err.message));
 
-//routes
-const placesRoutes = require('./server/routes/PlacesRoutes');
-//use route
-app.use('/', placesRoutes);
-
 //MiddleWare
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
+
+//routes
+const placesRoutes = require('./server/routes/PlacesRoutes');
+//use route
+app.use('/', placesRoutes);
 
 app.get('/', function (req, res) {
   res.send('Hello World');
