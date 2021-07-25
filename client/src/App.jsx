@@ -22,6 +22,8 @@ class App extends Component {
 
     try {
       const createResult = await axios.post('http://localhost:4000/api/place/new', dataToCreateNewPlace);
+      //atnaujinti sarasa po naujos vietos ivedimo
+      this.getAllPlaces();
       console.log('createResult', createResult.data);
       return createResult.data ? true : false;
     } catch (error) {
