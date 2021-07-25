@@ -17,4 +17,14 @@ router.post('/api/place/new', async (req, res) => {
   }
 });
 
+// get all places
+router.get('/api/place', async (req, res) => {
+  try {
+    const allPlacesFromDb = await PlaceModel.find({});
+    res.json(allPlacesFromDb);
+  } catch (error) {
+    res.status(500).json();
+  }
+});
+
 module.exports = router;
