@@ -11,7 +11,10 @@ class App extends Component {
       places: [1, 2, 3, 4, 5],
     };
   }
-  state = {};
+
+  componentDidMount() {
+    this.getAllPlaces();
+  }
 
   createNewPlace = async (dataToCreateNewPlace) => {
     console.log('createNewPlace in app.jsx fired');
@@ -21,6 +24,20 @@ class App extends Component {
       const createResult = await axios.post('http://localhost:4000/api/place/new', dataToCreateNewPlace);
       console.log('createResult', createResult.data);
       return createResult.data ? true : false;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  getAllPlaces = async () => {
+    // gaunam visas vietas is db
+    try {
+      const allPlacesFromDb = await axios.get('http://localhost:4000/api/place');
+      //jei gavom duomenis
+      if (allPlacesFromDb.data) {
+        //nustatom state i tai, ka gavom
+        this.setState({ places: allPlacesFromDb.data });
+      }
     } catch (error) {
       console.log(error);
     }
