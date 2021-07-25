@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 
 class PlaceItem extends Component {
   render() {
+    const { place: p } = this.props;
     return (
       <div className="card m-2">
-        <div className="card-header">Place type: </div>
+        <div className="card-header">{p.placeType}</div>
         <div className="card-body">
-          <h5 className="card-title">Place</h5>
-          <p className="card-text">Continent:</p>
-          <p className="card-text">Population</p>
+          <h5 className="card-title">{p.name}</h5>
+          <p className="card-text">{p.continent}</p>
+          <p className="card-text">{p.population}</p>
         </div>
         <div className="card-footer">
           <button className="btn btn-success">Edit</button>

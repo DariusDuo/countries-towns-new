@@ -8,7 +8,7 @@ class PlaceList extends Component {
         <h2>Place list</h2>
         <div className="places-list d-flex flex-wrap">
           {this.props.places.map((place) => (
-            <PlaceItem place={place} key={place} />
+            <PlaceItem place={place} key={place._id} />
           ))}
         </div>
       </div>
