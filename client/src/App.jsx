@@ -45,13 +45,17 @@ class App extends Component {
     }
   };
 
+  deletePlace = async (id) => {
+    console.log('you are about to deletete', id);
+  };
+
   render() {
     return (
       <div className="App">
         <div className="container">
           <PlaceForm onCreateNewPlace={this.createNewPlace} />
           {/* perduodam places i PlaceList */}
-          <PlaceList places={this.state.places} />
+          <PlaceList onDelete={this.deletePlace} places={this.state.places} />
         </div>
       </div>
     );

@@ -13,7 +13,9 @@ class PlaceItem extends Component {
         </div>
         <div className="card-footer">
           <button className="btn btn-success">Edit</button>
-          <button className="btn btn-danger">Delete</button>
+          <button onClick={() => this.props.onDelete(p._id)} className="btn btn-danger">
+            Delete
+          </button>
         </div>
       </div>
     );
