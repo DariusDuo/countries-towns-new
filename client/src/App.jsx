@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import PlaceForm from './components/PlaceForm';
 import axios from 'axios';
+import PlaceList from './components/PlaceList';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      places: [1, 2, 3],
+    };
+  }
   state = {};
 
   createNewPlace = async (dataToCreateNewPlace) => {
@@ -22,8 +29,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="container">
+        <div className="container d-flex">
           <PlaceForm onCreateNewPlace={this.createNewPlace} />
+          {/* perduodam places i PlaceList */}
+          <PlaceList places={this.state.places} />
         </div>
       </div>
     );
