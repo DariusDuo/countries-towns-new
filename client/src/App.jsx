@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      places: [1, 2, 3],
+      places: [1, 2, 3, 4, 5],
     };
   }
   state = {};
@@ -29,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="container d-flex">
+        <div className="container">
           <PlaceForm onCreateNewPlace={this.createNewPlace} />
           {/* perduodam places i PlaceList */}
           <PlaceList places={this.state.places} />
