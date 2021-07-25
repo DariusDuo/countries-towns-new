@@ -4,7 +4,7 @@ class PlaceItem extends Component {
   render() {
     const { place: p } = this.props;
     return (
-      <div className="card m-2">
+      <div className={'card m-2 ' + (p.placeType === 'country' ? 'text-white bg-secondary ' : '')}>
         <div className="card-header">{p.placeType}</div>
         <div className="card-body">
           <h5 className="card-title">{p.name}</h5>
