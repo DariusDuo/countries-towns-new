@@ -18,14 +18,14 @@ class PlaceItem extends Component {
     return (
       <div className={'card m-2 ' + (p.placeType === 'country' ? 'text-white bg-secondary ' : '')}>
         {this.state.isEditOn ? (
-          <PlaceForm />
+          <PlaceForm place={p} />
         ) : (
           <React.Fragment>
             <div className="card-header">{p.placeType}</div>
             <div className="card-body">
               <h5 className="card-title">{p.name}</h5>
-              <p className="card-text">{p.continent}</p>
-              <p className="card-text">{p.population}</p>
+              <p className="card-text">Continent: {p.continent}</p>
+              <p className="card-text">Population: {p.population}</p>
             </div>
             <div className="card-footer">
               <button onClick={this.handleEdit} className="btn btn-success">
