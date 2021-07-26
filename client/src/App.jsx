@@ -59,13 +59,19 @@ class App extends Component {
     }
   };
 
+  updatePlace = async (id, updatedDetails) => {
+    console.log('you are about to update place', id, updatedDetails);
+    // try {
+    //   const deleteResult = await axios.delete('http://localhost:4000/api/place/delete/' + id);
+  };
+
   render() {
     return (
       <div className="App">
         <div className="container">
           <PlaceForm onCreateNewPlace={this.createNewPlace} />
           {/* perduodam places i PlaceList */}
-          <PlaceList onDelete={this.deletePlace} places={this.state.places} />
+          <PlaceList onUpdate={this.updatePlace} onDelete={this.deletePlace} places={this.state.places} />
         </div>
       </div>
     );
