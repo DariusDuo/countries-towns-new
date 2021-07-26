@@ -49,9 +49,11 @@ class App extends Component {
     console.log('you are about to deletete', id);
     try {
       const deleteResult = await axios.delete('http://localhost:4000/api/place/delete/' + id);
-      console.log('deleteResult', deleteResult.data);
+      // console.log('deleteResult', deleteResult.data);
       //atnaujinti sarasa be istrinto elemento
-      this.getAllPlaces();
+      if (deleteResult.data) {
+        this.getAllPlaces();
+      }
     } catch (error) {
       console.error(error);
     }
