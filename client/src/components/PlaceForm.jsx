@@ -13,7 +13,7 @@ class PlaceForm extends Component {
       name: '',
       continent: '',
       population: '',
-      placeType: '',
+      placeType: 'city',
     });
   };
 
@@ -21,6 +21,7 @@ class PlaceForm extends Component {
     const { name, continent, population, placeType } = this.state;
     e.preventDefault();
     console.log('Stop!');
+
     const dataToCreateNewPlace = { name, continent, population, placeType };
     // console.log('dataToCreateNewPlace', dataToCreateNewPlace);
     const createSuccess = await this.props.onCreateNewPlace(dataToCreateNewPlace);
@@ -34,8 +35,8 @@ class PlaceForm extends Component {
   render() {
     const { state: s } = this;
     return (
-      <div className="w-50">
-        <h2>Create new place</h2>
+      <div className={this.props.place ? 'card-body' : 'w-50'}>
+        {this.props.place ? null : <h2>Create new place</h2>}
         <form onSubmit={this.handleSubmitLocal} autoComplete="off">
           <div className="form-group">
             <input
