@@ -5,7 +5,7 @@ class PlaceItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isEditOn: false,
+      isEdiOn: false,
     };
   }
 
@@ -18,10 +18,10 @@ class PlaceItem extends Component {
     return (
       <div className={'card m-2 ' + (p.placeType === 'country' ? 'text-white bg-secondary ' : '')}>
         {this.state.isEditOn ? (
-          <PlaceForm place={p} />
+          <PlaceForm place={p} onEdit={this.handleEdit} />
         ) : (
           <React.Fragment>
-            <div className="card-header">{p.placeType}</div>
+            <div className="card-header">Place type: {p.placeType} </div>
             <div className="card-body">
               <h5 className="card-title">{p.name}</h5>
               <p className="card-text">Continent: {p.continent}</p>
