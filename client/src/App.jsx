@@ -61,8 +61,12 @@ class App extends Component {
 
   updatePlace = async (id, updatedDetails) => {
     console.log('you are about to update place', id, updatedDetails);
-    // try {
-    //   const deleteResult = await axios.delete('http://localhost:4000/api/place/delete/' + id);
+    try {
+      const updateResult = await axios.put('http://localhost:4000/api/place/update/' + id, updatedDetails);
+      if (updateResult.data) this.getAllPlaces();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   render() {
