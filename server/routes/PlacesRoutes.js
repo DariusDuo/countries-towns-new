@@ -38,4 +38,16 @@ router.delete('/api/place/delete/:placeId', async (req, res) => {
   }
 });
 
+// Update a place
+router.put('/api/place/update/:placeId', async (req, res) => {
+  const idOfItemToUpdate = req.params.placeId;
+  const updatedPlaceData = req.body;
+  try {
+    const updateResult = await PlaceModel.findByIdAndUpdate(idOfItemToUpdate, updatedPlaceData);
+    res.json(updateResult);
+  } catch (error) {
+    res.status(500).json();
+  }
+});
+
 module.exports = router;
